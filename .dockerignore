@@ -1,0 +1,8 @@
+node_modules
+dist
+.angular
+backend
+k8s
+.git
+.github
+*.md

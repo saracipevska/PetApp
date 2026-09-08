@@ -1,0 +1,28 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: petapp-ingress
+  namespace: petapp
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: petapp.local
+      http:
+        paths:
+          # Backend API first - Express is already mounted at /api/pets, so no
+          # path rewriting is needed, the request path passes through as-is.
+          - path: /api
+            pathType: Prefix
+            backend:
+              service:
+                name: backend
+                port:
+                  number: 8081
+          # Everything else goes to the Angular app.
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: frontend
+                port:
+                  number: 80

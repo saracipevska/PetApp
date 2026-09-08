@@ -1,0 +1,247 @@
+/* =========================
+   PAGE WRAPPER
+========================= */
+
+.section-bg {
+  background: #f0f4f8;
+  width: 100%;
+}
+
+/* =========================
+   HEADER (FLEX BAR)
+========================= */
+
+.shop-header {
+  background: #f0f4f8;
+  /*opacity: 70%;*/
+  /*background: #C17F4A;*/
+  padding: 90px 20px 50px;
+  color: #fff;
+}
+
+.shop-header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.shop-title {
+  display: flex;
+  flex-direction: column;
+}
+
+.shop-title h2 {
+  font-size: 28px;
+  font-weight: 600;
+  margin: 0;
+  /*color: #fff;*/
+  /*color: #2d4a47;*/
+  color: #C17F4A;
+
+}
+
+.shop-title p {
+  font-size: 14px;
+  opacity: 0.85;
+  margin: 4px 0 0;
+}
+
+/* =========================
+   SEARCH BAR
+========================= */
+
+.search-bar {
+  position: relative;
+  width: 380px;
+}
+
+.search-bar input {
+  width: 100%;
+  padding: 12px 45px 12px 16px;
+  border-radius: 40px;
+  border: none;
+  font-size: 14px;
+  outline: none;
+  background: rgba(255,255,255,0.15);
+  color: white !important;
+  background: #C17F4A;
+  opacity: 61%;
+  /*opacity: 61%;*/
+}
+
+.search-bar input::placeholder {
+  color: rgba(255,255,255,0.7);
+  background: #C17F4A;
+  /*opacity: 61%;*/
+}
+
+.search-bar input:focus {
+  background: rgba(255,255,255,0.25);
+  background: #C17F4A;
+  /*opacity: 61%;*/
+}
+
+.search-icon {
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 16px;
+}
+
+/* =========================
+   PRODUCT CARD
+========================= */
+
+.product-card {
+  background: #fff;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 0.5px solid #e8d8c0;
+  transition: all 0.25s ease;
+  height: 100%;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(193, 127, 74, 0.15);
+}
+
+/* =========================
+   IMAGE
+========================= */
+
+.product-img {
+  height: 180px;
+  overflow: hidden;
+  position: relative;
+}
+
+.product-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* =========================
+   BADGE (BRONZE)
+========================= */
+
+.product-badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: #C17F4A;
+  color: #fff;
+  font-size: 11px;
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-weight: 500;
+}
+
+/* =========================
+   INFO
+========================= */
+
+.product-info {
+  padding: 14px;
+}
+
+.product-info h6 {
+  font-size: 14px;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin-bottom: 4px;
+}
+
+.product-info p {
+  font-size: 12px;
+  color: #888;
+  margin-bottom: 12px;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+.product-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* =========================
+   PRICE (BRONZE)
+========================= */
+
+.product-price {
+  font-size: 16px;
+  font-weight: 600;
+  color: #C17F4A;
+}
+
+/* =========================
+   BUTTON (BRONZE)
+========================= */
+
+.btn-add {
+  background: #C17F4A;
+  color: #fff;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-add:hover {
+  background: #a9683a;
+  transform: translateY(-1px);
+}
+
+/* =========================
+   EMPTY STATE
+========================= */
+
+.no-results {
+  font-size: 16px;
+  color: #888;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 768px) {
+  .shop-header-inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .search-bar {
+    width: 100%;
+  }
+}
+
+.cart-toast {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #094545;
+  color: white;
+  padding: 12px 18px;
+  border-radius: 10px;
+  font-size: 14px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  z-index: 9999;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}

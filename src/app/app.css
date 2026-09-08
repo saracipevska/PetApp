@@ -1,0 +1,104 @@
+.navbar {
+  background: #094545 !important;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+}
+
+.nav-link {
+  transition: transform 0.2s ease, border 0.2s ease;
+  display: inline-block;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  padding: 4px 8px;
+  color: white;
+}
+
+.nav-link:hover {
+  transform: scale(1.15);
+
+}
+.navbar-nav {
+  gap: 8px;
+  font-size: 20px;
+}
+.navbar-brand{
+  font-size: 20px;
+  color: white;
+}
+
+.white-paw {
+  filter: brightness(0) invert(1);
+}
+
+.footer {
+  background: #094545 !important;
+  color: #fff;
+
+  height: 250px;          /* 👈 фиксна висина */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  padding: 20px 0 10px;
+  overflow: hidden;       /* да не излегува ништо */
+}
+div.row{
+  padding-left: 80px;
+  padding-right: 80px;
+}
+
+.footer h6 {
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.footer ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer ul li {
+  margin-bottom: 8px;
+}
+
+.footer a {
+  color: #bbb;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.footer a:hover {
+  color: #fff;
+  padding-left: 5px;
+}
+
+.footer p {
+  margin: 5px 0;
+  color: #ccc;
+}
+
+.socials span {
+  font-size: 22px;
+  margin-right: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.socials span:hover {
+  transform: scale(1.2);
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.1);
+  margin-top: 20px;
+  padding-top: 10px;
+  font-size: 13px;
+  color: #aaa;
+}
+
+.white-paw {
+  filter: grayscale(100%) brightness(200%);
+}

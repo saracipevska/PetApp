@@ -1,0 +1,63 @@
+<div class="shop-header">
+  <div class="shop-header-inner">
+
+    <div class="shop-title">
+      <h2>Food</h2>
+    </div>
+
+    <div class="search-bar">
+      <input type="text" placeholder="Search products..."
+             [(ngModel)]="searchQuery"
+             (input)="filterProducts()" />
+      <span class="search-icon">🔍</span>
+    </div>
+
+  </div>
+</div>
+
+<!-- PRODUCTS -->
+<div class="section-bg">
+  <div class="container py-5">
+    <div class="row g-4">
+
+      @for (product of filteredProducts; track product.id) {
+        <div class="col-6 col-md-3">
+          <div class="product-card">
+
+            <div class="product-img">
+              <img [src]="product.image" [alt]="product.name" />
+
+              <span class="product-badge" *ngIf="product.badge">
+                {{ product.badge }}
+              </span>
+            </div>
+
+            <div class="product-info">
+              <h6>{{ product.name }}</h6>
+              <p>{{ product.description }}</p>
+
+              <div class="product-footer">
+                <span class="product-price">${{ product.price }}</span>
+
+                <!-- CHANGED BUTTON -->
+                <button class="btn-add" (click)="checkAvailability(product)">
+                  Check availability
+                </button>
+
+              </div>
+            </div>
+
+          </div>
+        </div>
+      }
+
+    </div>
+  </div>
+</div>
+
+<!-- TOAST -->
+@if (showMessage) {
+  <div class="cart-toast">
+    {{ message }}
+  </div>
+}

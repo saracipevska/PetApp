@@ -1,0 +1,117 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container">
+<!--    <a class="navbar-brand" routerLink="/">-->
+       <span class="white-paw">🐾</span>
+      <a class="navbar-brand" routerLink="/">PawPaw</a>
+<!--      PawPaw</a>-->
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+
+        <!-- Home -->
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Home</a>
+        </li>
+
+        <!-- Lost & Found -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+            Lost & Found
+          </a>
+          <ul class="dropdown-menu dropdown-menu-dark">
+            <li><a class="dropdown-item" routerLink="/lost-and-found/lost">Lost</a></li>
+            <li><a class="dropdown-item" routerLink="/lost-and-found/found">Found</a></li>
+<!--            <li><a class="dropdown-item" routerLink="/lost-and-found/all">All</a> </li>-->
+          </ul>
+        </li>
+
+        <!-- Sales -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+            Sales
+          </a>
+          <ul class="dropdown-menu dropdown-menu-dark">
+            <li><a class="dropdown-item" routerLink="/sales/food">Food</a></li>
+            <li><a class="dropdown-item" routerLink="/sales/accessories">Accessories</a></li>
+            <li><a class="dropdown-item" routerLink="/sales/clothing">Clothing</a></li>
+            <li><a class="dropdown-item" routerLink="/sales/supplements">Supplements</a></li>
+<!--            <li><a class="dropdown-item" routerLink="/sales/other">Other</a></li>-->
+          </ul>
+        </li>
+
+        <!-- Veterinarian -->
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/veterinarian" routerLinkActive="active">Veterinarian</a>
+        </li>
+
+        <!-- Adoption -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+            Adoption
+          </a>
+          <ul class="dropdown-menu dropdown-menu-dark">
+            <li><a class="dropdown-item" routerLink="/adoption/want">Want to adopt</a></li>
+            <li><a class="dropdown-item" routerLink="/adoption/have">Have for adoption</a></li>
+          </ul>
+        </li>
+
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+
+<router-outlet></router-outlet>
+<footer class="footer">
+  <div class="container">
+    <div class="row">
+
+      <!-- Column 1 - Navigation -->
+      <div class="col-md-4 footer-col">
+        <h6>PawPaw</h6>
+        <ul>
+          <li><a routerLink="/">Home</a></li>
+          <li><a routerLink="/lost-and-found/lost">Lost</a></li>
+          <li><a routerLink="/lost-and-found/found">Found</a></li>
+          <li><a routerLink="/sales/food">Food</a></li>
+          <li><a routerLink="/sales/accessories">Accessories</a></li>
+          <li><a routerLink="/veterinarian">Veterinarian</a></li>
+          <li><a routerLink="/adoption/want">Adopt</a></li>
+        </ul>
+      </div>
+
+      <!-- Column 2 - Contact -->
+      <div class="col-md-4 footer-col">
+        <h6>Contact</h6>
+        <p>📍 Skopje, North Macedonia</p>
+        <p>📞 +389 70 123 456</p>
+        <p>✉️ pawpaw@gmail.com</p>
+      </div>
+
+      <!-- Column 3 - Extra (nice touch 😏) -->
+      <div class="col-md-4 footer-col">
+        <h6>About PawPaw</h6>
+        <p>
+          Helping pets find homes, reconnect with owners, and live better lives
+          <span class="white-paw">🐾</span>
+        </p>
+
+        <div class="socials">
+          <span>🐶</span>
+          <span>🐱</span>
+          <span class="white-paw">🐾</span>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom text-center">
+      <span class="white-paw">🐾 PawPaw © 2026 • Made with ❤️</span>
+    </div>
+  </div>
+</footer>

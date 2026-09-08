@@ -1,0 +1,206 @@
+<div class="page-header-bar">
+  <div class="container d-flex justify-content-between align-items-center">
+    <h2 class="page-title">Found Pets</h2>
+    <button class="btn-open-modal" (click)="openModal()">+ Report a found pet</button>
+  </div>
+</div>
+
+@if (showModal) {
+  <div class="modal-overlay" (click)="closeModal()">
+    <div class="modal-box" (click)="$event.stopPropagation()">
+      <button class="modal-close-btn" (click)="closeModal()">✕</button>
+
+      <!-- HEADER FIXED ORDER -->
+      <div class="modal-header">
+        <span class="modal-icon">🐾</span>
+
+        <h3>Report a Found Pet</h3>
+
+        <p>
+          Describe the pet you found so the owner can recognize it.
+        </p>
+      </div>
+
+      @if (!submitted) {
+        <form (ngSubmit)="onSubmit()" #form="ngForm">
+
+          <div class="fp-group">
+            <label>Pet Name (if known)</label>
+            <input class="fp-input"
+                   type="text"
+                   placeholder="e.g. Bella"
+                   [(ngModel)]="petForm.name"
+                   name="name"
+                   required
+                   #name="ngModel">
+
+            @if (name.invalid && name.touched) {
+              <small style="color:red;">Name is required</small>
+            }
+          </div>
+
+          <div class="fp-row-2">
+            <div class="fp-group">
+              <label>Type</label>
+              <select class="fp-select"
+                      [(ngModel)]="petForm.type"
+                      name="type"
+                      required
+                      #type="ngModel">
+                <option>Dog</option>
+                <option>Cat</option>
+                <option>Other</option>
+              </select>
+
+              @if (type.invalid && type.touched) {
+                <small style="color:red;">Type is required</small>
+              }
+            </div>
+
+            <div class="fp-group">
+              <label>Breed</label>
+              <input class="fp-input"
+                     type="text"
+                     placeholder="e.g. Labrador"
+                     [(ngModel)]="petForm.breed"
+                     name="breed"
+                     required
+                     #breed="ngModel">
+
+              @if (breed.invalid && breed.touched) {
+                <small style="color:red;">Breed is required</small>
+              }
+            </div>
+          </div>
+
+          <div class="fp-row-2">
+            <div class="fp-group">
+              <label>Color</label>
+              <input class="fp-input"
+                     type="text"
+                     placeholder="e.g. Golden"
+                     [(ngModel)]="petForm.color"
+                     name="color"
+                     required
+                     #color="ngModel">
+
+              @if (color.invalid && color.touched) {
+                <small style="color:red;">Color is required</small>
+              }
+            </div>
+
+            <div class="fp-group">
+              <label>Gender</label>
+              <select class="fp-select"
+                      [(ngModel)]="petForm.gender"
+                      name="gender"
+                      required
+                      #gender="ngModel">
+                <option>Male</option>
+                <option>Female</option>
+                <option>Unknown</option>
+              </select>
+
+              @if (gender.invalid && gender.touched) {
+                <small style="color:red;">Gender is required</small>
+              }
+            </div>
+          </div>
+
+          <div class="fp-group">
+            <label>Found Location</label>
+            <input class="fp-input"
+                   type="text"
+                   placeholder="City, street..."
+                   [(ngModel)]="petForm.location"
+                   name="location"
+                   required
+                   #location="ngModel">
+
+            @if (location.invalid && location.touched) {
+              <small style="color:red;">Location is required</small>
+            }
+          </div>
+
+          <div class="fp-group">
+            <label>Date Found</label>
+            <input class="fp-input"
+                   type="date"
+                   [(ngModel)]="petForm.date"
+                   name="date"
+                   required
+                   #date="ngModel">
+
+            @if (date.invalid && date.touched) {
+              <small style="color:red;">Date is required</small>
+            }
+          </div>
+
+          <div class="fp-group">
+            <label>Description</label>
+            <textarea class="fp-textarea"
+                      rows="3"
+                      placeholder="Details, behavior, collar..."
+                      [(ngModel)]="petForm.description"
+                      name="description"
+                      required
+                      #description="ngModel"></textarea>
+
+            @if (description.invalid && description.touched) {
+              <small style="color:red;">Description is required</small>
+            }
+          </div>
+
+          <div class="fp-group">
+            <label>Upload Image</label>
+
+            <div class="fp-upload" (click)="imageInput.click()">
+              <span class="up-icon">📎</span>
+              <span>Click to upload</span>
+              <small>PNG, JPG up to 5MB</small>
+            </div>
+
+            <input type="file" #imageInput hidden (change)="onImageSelected($event)">
+
+            @if (previewUrl) {
+              <div class="fp-preview">
+                <img [src]="previewUrl" alt="preview">
+              </div>
+            }
+          </div>
+
+          <div class="fp-group">
+            <label>Contact Info</label>
+            <input class="fp-input"
+                   type="text"
+                   placeholder="Phone or email"
+                   [(ngModel)]="petForm.contact"
+                   name="contact"
+                   required
+                   #contact="ngModel">
+
+            @if (contact.invalid && contact.touched) {
+              <small style="color:red;">Contact is required</small>
+            }
+          </div>
+
+          <button type="submit" class="fp-submit" [disabled]="form.invalid">
+            Submit Report
+          </button>
+
+        </form>
+      }
+
+      @if (submitted) {
+        <div class="fp-success">
+          <span class="s-icon">✅</span>
+          <div>
+            <strong>Successfully submitted!</strong>
+            <p>We'll do our best to find the owner 🐾</p>
+          </div>
+        </div>
+      }
+
+    </div>
+  </div>
+}

@@ -1,0 +1,171 @@
+
+<div class="page-header-bar">
+  <div class="container d-flex justify-content-between align-items-center">
+    <h2 class="page-title">Have a Pet for Adoption</h2>
+    <button class="btn-open-modal" (click)="openModal()">+ List a pet</button>
+  </div>
+</div>
+
+@if (showModal) {
+  <div class="modal-overlay" (click)="closeModal()">
+    <div class="modal-box" (click)="$event.stopPropagation()">
+      <button class="modal-close-btn" (click)="closeModal()">✕</button>
+
+      <div class="modal-header">
+        <span class="modal-icon">🏡</span>
+        <h3>List a Pet for Adoption</h3>
+        <p>Complete the form and your pet will be visible to potential adopters.</p>
+      </div>
+
+      @if (!submitted) {
+        <div class="modal-body-scroll">
+          <form id="haveForm" (ngSubmit)="onSubmit(form)" #form="ngForm">
+
+            <div class="fp-group">
+              <label>Pet Name *</label>
+              <input class="fp-input" type="text" placeholder="e.g. Bella"
+                     [(ngModel)]="petForm.name" name="name" required #name="ngModel">
+              @if (name.invalid && name.touched) {
+                <small class="err">Pet name is required</small>
+              }
+            </div>
+
+            <div class="fp-row-2">
+              <div class="fp-group">
+                <label>Type *</label>
+                <select class="fp-select" [(ngModel)]="petForm.type" name="type" required #type="ngModel">
+                  <option value="">-- Select --</option>
+                  <option>Dog</option>
+                  <option>Cat</option>
+                  <option>Other</option>
+                </select>
+                @if (type.invalid && type.touched) {
+                  <small class="err">Type is required</small>
+                }
+              </div>
+              <div class="fp-group">
+                <label>Breed *</label>
+                <input class="fp-input" type="text" placeholder="e.g. Labrador"
+                       [(ngModel)]="petForm.breed" name="breed" required #breed="ngModel">
+                @if (breed.invalid && breed.touched) {
+                  <small class="err">Breed is required</small>
+                }
+              </div>
+            </div>
+
+            <div class="fp-row-2">
+              <div class="fp-group">
+                <label>Age *</label>
+                <input class="fp-input" type="text" placeholder="e.g. 2 years"
+                       [(ngModel)]="petForm.age" name="age" required #age="ngModel">
+                @if (age.invalid && age.touched) {
+                  <small class="err">Age is required</small>
+                }
+              </div>
+              <div class="fp-group">
+                <label>Color *</label>
+                <input class="fp-input" type="text" placeholder="e.g. Golden"
+                       [(ngModel)]="petForm.color" name="color" required #color="ngModel">
+                @if (color.invalid && color.touched) {
+                  <small class="err">Color is required</small>
+                }
+              </div>
+            </div>
+
+            <div class="fp-group">
+              <label>Description *</label>
+              <textarea class="fp-textarea" rows="2" placeholder="Personality, health, vaccinations..."
+                        [(ngModel)]="petForm.description" name="description" required #description="ngModel"></textarea>
+              @if (description.invalid && description.touched) {
+                <small class="err">Description is required</small>
+              }
+            </div>
+
+            <div class="fp-group">
+              <label>Upload Image</label>
+              <div class="fp-upload" (click)="imageInput.click()">
+                <span class="up-icon">📎</span>
+                <span>Click to upload a photo</span>
+                <small>PNG, JPG up to 5MB</small>
+              </div>
+              <input type="file" #imageInput hidden (change)="onImageSelected($event)">
+              @if (previewUrl) {
+                <div class="fp-preview">
+                  <img [src]="previewUrl">
+                </div>
+              }
+            </div>
+
+            <div class="fp-group">
+              <label>Contact Info *</label>
+              <input class="fp-input" type="text" placeholder="Phone or email"
+                     [(ngModel)]="petForm.contact" name="contact" required #contact="ngModel">
+              @if (contact.invalid && contact.touched) {
+                <small class="err">Contact info is required</small>
+              }
+            </div>
+
+          </form>
+        </div>
+
+        <div class="modal-footer-sticky">
+          <button type="submit" form="haveForm" class="fp-submit">Publish Pet</button>
+        </div>
+      }
+
+      @if (submitted) {
+        <div class="fp-success">
+          <span class="s-icon">✅</span>
+          <div>
+            <strong>Pet published!</strong>
+            <p>Others can now see and adopt your pet 🐾</p>
+          </div>
+        </div>
+      }
+
+    </div>
+  </div>
+}
+
+<!-- CAROUSEL -->
+<section class="adopted-section">
+  <div class="container">
+    <div class="section-header">
+      <h2>Pets That Found a Home</h2>
+      <p>Thanks to people like you, these pets found their forever families 🐾</p>
+    </div>
+
+    <div class="carousel-wrapper">
+      <button class="carousel-btn" (click)="prevSlide()">&#8249;</button>
+
+      <div class="carousel-track-wrapper">
+        <div class="carousel-track" [style.transform]="'translateX(-' + (currentSlide * slideWidth) + '%)'">
+          @for (story of adoptedStories; track story.id) {
+            <div class="pawpaw-slide">
+              <div class="success-card">
+                <div class="success-card-image">
+                  <img [src]="story.image" [alt]="story.title">
+                  <span class="emoji-overlay">{{ story.emoji }}</span>
+                </div>
+                <div class="success-card-body">
+                  <span class="success-tag" [ngClass]="story.tagClass">{{ story.tag }}</span>
+                  <h6>{{ story.title }}</h6>
+                  <p>{{ story.description }}</p>
+                  <small>{{ story.date }}</small>
+                </div>
+              </div>
+            </div>
+          }
+        </div>
+      </div>
+
+      <button class="carousel-btn" (click)="nextSlide()">&#8250;</button>
+    </div>
+
+    <div class="carousel-dots">
+      @for (dot of dots; track dot) {
+        <span class="carousel-dot" [class.active]="dot === currentSlide" (click)="goToSlide(dot)"></span>
+      }
+    </div>
+  </div>
+</section>

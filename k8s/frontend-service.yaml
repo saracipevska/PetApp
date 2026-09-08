@@ -1,0 +1,14 @@
+# ClusterIP, not NodePort: external access goes through the Ingress below,
+# not by exposing this Service directly on a node port.
+apiVersion: v1
+kind: Service
+metadata:
+  name: frontend
+  namespace: petapp
+spec:
+  type: ClusterIP
+  selector:
+    app: frontend
+  ports:
+    - port: 80
+      targetPort: 80

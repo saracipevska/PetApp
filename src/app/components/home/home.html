@@ -1,0 +1,249 @@
+<section class="hero-banner">
+  <div class="container d-flex align-items-center justify-content-between flex-wrap py-5">
+    <div class="hero-content">
+      <h1 class="hero-title">Treat Your Pet<br />like royalty!</h1>
+      <p class="text-hero mt-3">
+        Find lost pets, adopt new friends, and take care of your pets in one place.
+      </p>
+      <div class="d-flex gap-3 mt-4 flex-wrap">
+        <button class="btn btn-sage px-4" routerLink="/lost-and-found/lost">Find a lost pet</button>
+        <button class="btn btn-outline-sage px-4" routerLink="/adoption/want">Adopt a pet</button>
+      </div>
+    </div>
+    <div class="hero-img-right">
+      <img src="../../../assets/images/hero.jpg" alt="pet hero" />
+    </div>
+  </div>
+</section>
+
+<section class="mission-section py-5">
+  <div class="container" id="kec">
+    <div class="row align-items-center g-4">
+      <div class="col-md-5">
+        <div class="mission-images">
+          <img src="assets/images/1b694be4be6452e11607f05f113e8536.webp" alt="dog" class="mission-img-main" />
+          <img src="assets/images/b696e5282fa38114b7e028f4c646b947.webp" alt="dog2" class="mission-img-secondary" />
+        </div>
+      </div>
+      <div class="col-md-7">
+        <h2 class="mission-title">What We Do</h2>
+        <p class="mission-text">Our mission is to work with our clients to positively impact the quality of life for each pet that we look after. We are always continually raising the standard of excellence for pet care and client service.</p>
+        <p class="mission-text">We believe every pet deserves a loving home and proper care. Through our platform we connect pet owners, adopters, and veterinarians to make that possible.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-5">
+  <div class="container" id="dva">
+    <h2 class="text-center mb-4" id="tekst">What can you do on PawPaw?</h2>
+    <div class="row g-3">
+      <div class="col-12 col-md-3">
+        <div class="feature-card text-center p-4" routerLink="/lost-and-found/lost">
+          <div class="feature-icon icon-purple mx-auto mb-3">🔍</div>
+          <h5>Lost & Found</h5>
+          <p class="text-muted small">Report or find lost pets quickly.</p>
+        </div>
+      </div>
+      <div class="col-12 col-md-3">
+        <div class="feature-card text-center p-4" routerLink="/veterinarian">
+          <div class="feature-icon icon-teal mx-auto mb-3">🏥</div>
+          <h5>Veterinarian</h5>
+          <p class="text-muted small">Book vet appointments easily.</p>
+        </div>
+      </div>
+      <div class="col-12 col-md-3">
+        <div class="feature-card text-center p-4" routerLink="/sales/food">
+          <div class="feature-icon icon-coral mx-auto mb-3">🛍️</div>
+          <h5>Pet Shop</h5>
+          <p class="text-muted small">Everything your pet needs.</p>
+        </div>
+      </div>
+      <div class="col-12 col-md-3">
+        <div class="feature-card text-center p-4" routerLink="/adoption/want">
+          <div class="feature-icon icon-amber mx-auto mb-3">🏠</div>
+          <h5>Adoption</h5>
+          <p class="text-muted small">Give pets a loving home.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="howto-wrapper py-5">
+  <div class="howto-section">
+    <div class="howto-img-side">
+      <img src="assets/images/images/download (3).jpg" alt="pet" />
+    </div>
+    <div class="howto-content">
+      <p class="howto-label">How it works</p>
+      <h2 class="howto-title">Simple steps to help your pet</h2>
+      <p class="howto-sub">PawPaw connects pet owners, adopters, and veterinarians in one place — fast, easy, and free.</p>
+      <ul class="howto-list">
+        <li>
+          <span class="howto-icon">✔</span>
+          <div>
+            <strong>Report a lost or found pet</strong>
+            <p>Fill out a simple form and we'll help reunite pets with their owners.</p>
+          </div>
+        </li>
+        <li>
+          <span class="howto-icon">✔</span>
+          <div>
+            <strong>Book a vet appointment</strong>
+            <p>Find trusted vets near you and schedule in minutes.</p>
+          </div>
+        </li>
+        <li>
+          <span class="howto-icon">✔</span>
+          <div>
+            <strong>Adopt or give for adoption</strong>
+            <p>Browse pets looking for a home or list your own.</p>
+          </div>
+        </li>
+        <li>
+          <span class="howto-icon">✔</span>
+          <div>
+            <strong>Shop for your pet</strong>
+            <p>Food, accessories, clothing and supplements — all in one place.</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!--<section class="success-section">-->
+<!--  <div class="container">-->
+<!--    <div class="section-header">-->
+<!--      <h2>Success Stories</h2>-->
+<!--      <p>Real moments that made a difference</p>-->
+<!--    </div>-->
+
+<!--    <div class="carousel-wrapper">-->
+<!--      <button class="carousel-btn" (click)="prevSlide()">&#8249;</button>-->
+
+<!--      <div class="carousel-track-wrapper">-->
+<!--        <div class="carousel-track"-->
+<!--             [style.transform]="'translateX(-' + (currentSlide * slideWidth) + '%)'">-->
+
+<!--          @for (story of successStories; track story.id) {-->
+<!--            <div class="pawpaw-slide">-->
+
+<!--              <div class="success-card">-->
+
+
+<!--                &lt;!&ndash; ✅ IMAGE PART &ndash;&gt;-->
+<!--                <div class="success-card-image">-->
+<!--                  <img [src]="story.image" alt="story image">-->
+
+<!--                  &lt;!&ndash; optional emoji overlay &ndash;&gt;-->
+<!--                  <span class="emoji-overlay">-->
+<!--                    {{ story.emoji }}-->
+<!--                  </span>-->
+<!--                </div>-->
+<!--                <div class="success-card-top" [ngClass]="story.topClass">-->
+<!--                  <img [src]="story.image" [alt]="story.title">-->
+
+<!--                </div>-->
+
+<!--                &lt;!&ndash; CONTENT &ndash;&gt;-->
+<!--                <div class="success-card-body">-->
+<!--                  <span class="success-tag" [ngClass]="story.tagClass">-->
+<!--                    {{ story.tag }}-->
+<!--                  </span>-->
+
+<!--                  <h6>{{ story.title }}</h6>-->
+<!--                  <p>{{ story.description }}</p>-->
+<!--                  <small>{{ story.date }}</small>-->
+<!--                </div>-->
+
+<!--              </div>-->
+
+<!--            </div>-->
+<!--          }-->
+
+<!--        </div>-->
+<!--      </div>-->
+
+<!--      <button class="carousel-btn" (click)="nextSlide()">&#8250;</button>-->
+<!--    </div>-->
+
+<!--    <div class="carousel-dots">-->
+<!--      @for (dot of dots; track dot) {-->
+<!--        <span class="carousel-dot"-->
+<!--              [class.active]="dot === currentSlide"-->
+<!--              (click)="goToSlide(dot)">-->
+<!--        </span>-->
+<!--      }-->
+<!--    </div>-->
+
+<!--  </div>-->
+<!--</section>-->
+
+<section class="success-section">
+  <div class="container">
+
+    <div class="section-header">
+      <h2>Success Stories</h2>
+      <p>Real moments that made a difference</p>
+    </div>
+
+    <div class="carousel-wrapper">
+      <button class="carousel-btn" (click)="prevSlide()">&#8249;</button>
+
+      <div class="carousel-track-wrapper">
+
+        <div class="carousel-track"
+             [style.transform]="'translateX(-' + (currentSlide * slideWidth) + '%)'">
+
+          @for (story of successStories; track story.id) {
+            <div class="pawpaw-slide">
+
+              <div class="success-card">
+
+                <!-- IMAGE -->
+                <div class="success-card-image">
+                  <img [src]="story.image" [alt]="story.title">
+
+                  <span class="emoji-overlay">
+                    {{ story.emoji }}
+                  </span>
+                </div>
+
+                <!-- CONTENT -->
+                <div class="success-card-body">
+
+                  <span class="success-tag" [ngClass]="story.tagClass">
+                    {{ story.tag }}
+                  </span>
+
+                  <h6>{{ story.title }}</h6>
+                  <p>{{ story.description }}</p>
+                  <small>{{ story.date }}</small>
+
+                </div>
+
+              </div>
+
+            </div>
+          }
+
+        </div>
+
+      </div>
+
+      <button class="carousel-btn" (click)="nextSlide()">&#8250;</button>
+    </div>
+
+    <div class="carousel-dots">
+      @for (dot of dots; track dot) {
+        <span class="carousel-dot"
+              [class.active]="dot === currentSlide"
+              (click)="goToSlide(dot)">
+        </span>
+      }
+    </div>
+
+  </div>
+</section>
