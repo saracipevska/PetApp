@@ -23,7 +23,7 @@ docs for kind. minikube's addon is the simpler path.)
 
 ## 2. Make the images pullable
 
-The workflow pushes to `ghcr.io/saracipevska/angularwebapplication-frontend` and
+The workflow pushes to `ghcr.io/saracipevska/petapp-frontend` and
 `...-backend`. By default GitHub Container Registry packages are **private**, and a
 local cluster has no credentials to pull a private image, so do ONE of:
 
@@ -74,8 +74,8 @@ The workflow tags images with both `:latest` and `:<git-sha>`. To roll out a spe
 build without editing YAML:
 
 ```bash
-kubectl -n petapp set image deployment/backend  backend=ghcr.io/saracipevska/angularwebapplication-backend:<sha>
-kubectl -n petapp set image deployment/frontend frontend=ghcr.io/saracipevska/angularwebapplication-frontend:<sha>
+kubectl -n petapp set image deployment/backend  backend=ghcr.io/saracipevska/petapp-backend:<sha>
+kubectl -n petapp set image deployment/frontend frontend=ghcr.io/saracipevska/petapp-frontend:<sha>
 ```
 
 Or, if you're happy tracking `:latest`, just force a re-pull:

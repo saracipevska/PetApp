@@ -17,7 +17,7 @@ spec:
         - name: backend
           # Placeholder tag - the CI/CD pipeline (or `kubectl set image`) replaces
           # this with a real ghcr.io image built from backend/Dockerfile.
-          image: ghcr.io/saracipevska/angularwebapplication-backend:latest
+          image: ghcr.io/saracipevska/petapp-backend:latest
           ports:
             - containerPort: 8081
           envFrom:

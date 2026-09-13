@@ -20,7 +20,7 @@ resources:
 # After CI/CD pushes new images, bump the tags here (or run the
 # `kubectl set image` commands in k8s/README.md) and re-apply.
 images:
-  - name: ghcr.io/saracipevska/angularwebapplication-backend
+  - name: ghcr.io/saracipevska/petapp-backend
     newTag: latest
-  - name: ghcr.io/saracipevska/angularwebapplication-frontend
+  - name: ghcr.io/saracipevska/petapp-frontend
     newTag: latest
