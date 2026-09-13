@@ -1,11 +1,14 @@
 const { Pool } = require('pg');
 
+const useSSL = process.env.PGSSLMODE === 'require';
+
 const pool = new Pool({
   host: process.env.PGHOST || 'localhost',
   port: Number(process.env.PGPORT) || 5432,
   user: process.env.PGUSER || 'petapp',
   password: process.env.PGPASSWORD || 'petapp',
-  database: process.env.PGDATABASE || 'petapp'
+  database: process.env.PGDATABASE || 'petapp',
+  ssl: useSSL ? { rejectUnauthorized: false } : false
 });
 
 pool.on('error', (err) => {
@@ -27,3 +30,5 @@ async function waitForDb(retries = 20, delayMs = 1500) {
 }
 
 module.exports = { pool, waitForDb };
+
+
