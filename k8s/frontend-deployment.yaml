@@ -17,7 +17,7 @@ spec:
         - name: frontend
           # Placeholder tag - the CI/CD pipeline (or `kubectl set image`) replaces
           # this with a real ghcr.io image built from the root Dockerfile.
-          image: ghcr.io/saracipevska/angularwebapplication-frontend:latest
+          image: ghcr.io/saracipevska/petapp-frontend:latest
           ports:
             - containerPort: 80
           readinessProbe:
