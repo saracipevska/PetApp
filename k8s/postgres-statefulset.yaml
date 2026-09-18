@@ -25,8 +25,6 @@ spec:
             - secretRef:
                 name: postgres-secret
           env:
-            # Postgres on a fresh ext4 volume finds a lost+found dir at the mount
-            # root and refuses to init; pointing PGDATA at a subdirectory avoids it.
             - name: PGDATA
               value: /var/lib/postgresql/data/pgdata
           volumeMounts:
@@ -48,9 +46,6 @@ spec:
         - name: init-sql
           configMap:
             name: postgres-init-sql
-  # StatefulSet-managed storage: Kubernetes creates one PVC per pod from this
-  # template (postgres-storage-postgres-0, etc.) instead of us wiring up a
-  # shared PersistentVolumeClaim by hand.
   volumeClaimTemplates:
     - metadata:
         name: postgres-storage
