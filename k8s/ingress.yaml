@@ -18,7 +18,6 @@ spec:
                 name: backend
                 port:
                   number: 8081
-          # Everything else goes to the Angular app.
           - path: /
             pathType: Prefix
             backend:
