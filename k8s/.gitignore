@@ -1,0 +1,3 @@
+# Real secret manifest stays local only - never committed.
+# See postgres-secret.example.yaml for the template.
+postgres-secret.yaml
